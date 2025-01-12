@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('content')
     <h1>Companies</h1>
@@ -24,4 +24,5 @@
             </tr>
         @endforeach
     </table>
-@endsection
+@endsection --}}
+admin

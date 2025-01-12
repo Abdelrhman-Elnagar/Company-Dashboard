@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+
 class LoginController extends Controller
 {
     /*
@@ -25,7 +26,22 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected function redirectTo()
+{
+    $user = auth()->user();
+    // dd($user->get)
+
+    if ($user->hasRole('admin')) {
+        return route('omar.index') ;
+    } elseif ($user->hasRole('company_owner')) {
+        return route('second.index') ;
+    } elseif ($user->hasRole('branch_manager')) {
+        return route('third.index') ;
+    }else
+    {
+        abort(403, 'Unauthorized access'); //more explainstion?
+    }
+}
 
     /**
      * Create a new controller instance.

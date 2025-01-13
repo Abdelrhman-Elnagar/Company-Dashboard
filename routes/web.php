@@ -28,6 +28,8 @@ Route::middleware('role:admin')->group(function () {
     Route::get('omar/index',function (){
         return view('dashboard.admin.index');
     })->name('omar.index');
+    Route::get('/companies/export', [CompanyController::class, 'export'])->name('companies.export');
+
 });
 
 //company owner

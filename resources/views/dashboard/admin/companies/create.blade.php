@@ -21,7 +21,7 @@
                             <input type="text" name="company_name" class="form-control" value="{{ old('company_name') }}">
                         </div>
                         @error('company_name')
-                            <div class="alert alert-danger">{{ $message }}</div>
+                            <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
 
@@ -31,7 +31,7 @@
                             <input type="email" name="company_email" class="form-control" value="{{ old('company_email') }}">
                         </div>
                         @error('company_email')
-                            <div class="alert alert-danger">{{ $message }}</div>
+                            <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                             <input type="text" name="owner_name" class="form-control" value="{{ old('owner_name') }}">
                         </div>
                         @error('owner_name')
-                            <div class="alert alert-danger">{{ $message }}</div>
+                            <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
 
@@ -57,11 +57,10 @@
                                         <i class="far fa-calendar-alt"></i>
                                     </span>
                                 </div>
-                                <input type="text" name="company_subscribe" class="form-control float-right"
-                                    id="reservation" value="{{ old('company_subscribe') }}">
+                                <input type="text" name="company_subscribe" class="form-control datepicker" value="{{ old('company_subscribe') }}">
                             </div>
                             @error('company_subscribe')
-                                <div class="alert alert-danger">{{ $message }}</div>
+                                <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
 
@@ -72,31 +71,42 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>حالة الشركة</label>
-                            <select class="form-control" value="{{ old('company_status') }}" name="company_status">
-                                <option>تفعيل</option>
-                                <option>تعطيل</option>
+                            <select class="form-control" name="company_status">
+                                <option value="تفعيل" {{ old('company_status') == 'تفعيل' ? 'selected' : '' }}>تفعيل</option>
+                                <option value="تعطيل" {{ old('company_status') == 'تعطيل' ? 'selected' : '' }}>تعطيل</option>
                             </select>
                         </div>
                         @error('company_status')
-                            <div class="alert alert-danger">{{ $message }}</div>
+                            <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
 
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label>كلمة السر</label>
-                            <input type="password" name="company_password" class="form-control"
-                                value="{{ old('company_password') }}">
+                            <input type="password" name="company_password" class="form-control">
                         </div>
                         @error('company_password')
-                            <div class="alert alert-danger">{{ $message }}</div>
+                            <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-block btn-primary mb-3">حفظ</button>
-                <a action="{{ back() }}" type="button" class="btn btn-block btn-secondary mb-3">الغاء</a>
+                <button type="submit" class="btn btn-primary btn-block mb-3">حفظ</button>
+                <a action="{{ url()->previous() }}" type="button" class="btn btn-secondary btn-block mb-3">الغاء</a>
             </form>
         </div>
     </div>
+
+
+    {{-- <script>
+        $(document).ready(function () {
+            $('#reservation').daterangepicker({
+                locale: {
+                    format: 'YYYY-MM-DD'
+                }
+            });
+        });
+    </script> --}}
+
 @endsection

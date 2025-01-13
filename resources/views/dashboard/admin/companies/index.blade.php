@@ -32,7 +32,7 @@
             <!-- /.card-header -->
             <div class="card-body">
                 <a href="{{ route('companies.create') }}" type="button" class="btn btn-block btn-primary mb-3">اضافة شركة</a>
-                <a href="{{ route('companies.create') }}" type="button" class="btn btn-block btn-success mb-3">تصدير باكسل</a>
+                <a href="{{ route('companies.export') }}" type="button" class="btn btn-block btn-success mb-3">تصدير باكسل</a>
                 <table class="table table-bordered">
                     <thead>
                         <tr>

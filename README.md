@@ -6,7 +6,7 @@ Features
 
         Manage all companies with ease.
 
-        Add, update, delete, or deactivate companies.
+        Add, update, soft delete, or deactivate companies.
 
         Renew subscriptions and control company access.
 

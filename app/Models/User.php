@@ -19,12 +19,18 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = ['branch_id', 'name', 'email', 'password', 'role'];
+    protected $fillable = ['branch_id', 'name', 'email', 'role'];
 
     public function branch()
     {
         return $this->belongsTo(Branch::class);
     }
+
+    public function company()
+{
+    return $this->belongsTo(Company::class);
+}
+
 
     /**
      * The attributes that should be hidden for serialization.

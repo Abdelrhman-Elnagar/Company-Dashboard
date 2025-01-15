@@ -1,4 +1,4 @@
-# Omar-Dashboard
+# Company-Dashboard
 
 Features
 
